@@ -16,6 +16,8 @@ import com.devsuperior.dsdeliver.entities.Product;
 import com.devsuperior.dsdeliver.repositories.OrderRepository;
 import com.devsuperior.dsdeliver.repositories.ProductRepository;
 
+
+
 @Service
 public class OrderService {
 
@@ -42,5 +44,14 @@ public class OrderService {
 		order = repository.save(order);
 		return new OrderDTO(order);
 	}
+	
+	@Transactional
+	public OrderDTO setDelivered(Long id){
+		Order order =repository.getOne(id);
+		order.setStatus(OrderStatus.DELIVERED);
+		order = repository.save(order);
+		return new OrderDTO(order);
+	}
+	
 }
 
