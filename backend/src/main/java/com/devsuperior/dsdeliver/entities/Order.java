@@ -39,10 +39,10 @@ public class Order implements Serializable{
 	public Order() {
 	}
 
-	public Order(Long id, String adress, Double latitude, Double longitude, Instant moment, OrderStatus status) {
+	public Order(Long id, String adress, Double latitude, Double longitude, Instant moment, OrderStatus status, String address) {
 		super();
 		this.id = id;
-		this.address = adress;
+		this.address = address;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.moment = moment;
@@ -57,7 +57,7 @@ public class Order implements Serializable{
 		this.id = id;
 	}
 
-	public String getAdress() {
+	public String getAddress() {
 		return address;
 	}
 
@@ -125,6 +125,7 @@ public class Order implements Serializable{
 			return false;
 		return true;
 	}
+
 	
 	
 }
